@@ -1,0 +1,10 @@
+header{
+    background-color: #FF3334;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+.logo{
+    height: 90%;
+    cursor: pointer;
+}

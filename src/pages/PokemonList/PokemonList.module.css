@@ -1,0 +1,62 @@
+/*desfocar o fundo*/
+.lista {
+    position: relative;
+    overflow: hidden;
+    min-height: max-content;
+}
+
+.lista::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-position: center;
+    filter: blur(2px);
+    z-index: 0;
+}
+
+.lista > * {
+    position: relative;
+    z-index: 1;
+}
+
+/*paginação*/
+.paginacao{
+    margin: 20px;
+}
+
+.paginacao :global(.ant-pagination-item){
+    background-color: #FF3334;
+    font-weight: bold;
+    border: 2px solid #4052D9;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.paginacao :global(.ant-pagination-item a){
+    color: white;
+    border-width: 4px;
+    backface-visibility: visible;
+}
+
+.paginacao :global(.ant-pagination-item:hover){
+    transform: scale(1.05);
+}
+
+.paginacao :global(.ant-pagination-item-active){
+    border: 2px solid aqua;
+}
+
+.paginacao :global(.ant-pagination-next button),
+.paginacao :global(.ant-pagination-prev button) {
+    color: #4052D9;
+
+}
+
+.paginacao :global(.ant-pagination-options-quick-jumper){
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bolder;
+    font-size: 17.5px;
+}
