@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom"
-import Cabecalho from "../../components/Cabecalho/Cabecalho"
 import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { Card, Flex, Image } from "antd"
 import styles from "./PokemonDetails.module.css"
-import Rodape from "../../components/Rodape/Rodape"
+import Header from "../../components/Cabecalho/Header"
+import Footer from "../../components/Rodape/Footer"
 
 function PokemonDetails(){
     const {id} = useParams()
@@ -26,7 +26,7 @@ function PokemonDetails(){
 
     return(
         <div className={styles.fundoDetalhes}>
-            <Cabecalho/>
+            <Header/>
             <Flex className={styles.flex}>
                 <div className={styles.pokemonFundo}>
                     <Image src={pokemon.sprites?.front_default} width={300} preview={false} className={styles.pokemonImagem}/>
@@ -34,14 +34,14 @@ function PokemonDetails(){
                 <Card title={<div><img src="PokeballPixel.png" alt="pokebola pixel art" className={styles.pokebolaPixel}/>{pokemon.id}   {pokemon.name}</div>} className={styles.detalhes}>
                     <Flex justify="space-around" className={styles.flex}>
                         <div>
-                        <h3>Altura: {pokemon.height/10}m</h3>
-                        <h3>Peso: {pokemon.weight/10}kg</h3>
-                        <Flex><h3>Tipo(s):</h3>{pokemon.types && pokemon.types.map((typeObj)=>(
-                            <h3 key={typeObj.slot}>
-                                {typeObj.type.name}
-                            </h3>
-                        ))}
-                        </Flex>
+                            <h3>Altura: {pokemon.height/10}m</h3>
+                            <h3>Peso: {pokemon.weight/10}kg</h3>
+                            <Flex><h3>Tipo(s):</h3>{pokemon.types && pokemon.types.map((typeObj)=>(
+                                <h3 key={typeObj.slot}>
+                                    {typeObj.type.name}
+                                </h3>
+                            ))}
+                            </Flex>
                         </div>
                         <div>
                             <h3>Movimentos:</h3>
@@ -54,7 +54,7 @@ function PokemonDetails(){
                     </Flex>
                 </Card>
             </Flex>
-            <Rodape/>
+            <Footer/>
         </div>
     )
 }

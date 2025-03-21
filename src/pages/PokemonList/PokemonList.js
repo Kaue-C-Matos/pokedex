@@ -1,24 +1,24 @@
 import { useCallback, useEffect, useState } from "react";
 import styles from "./PokemonList.module.css"
 import axios from "axios";
-import { Flex, Pagination } from "antd";
+import { Flex, Pagination} from "antd";
 import CardPokedex from "../../components/CardPokedex/CardPokedex";
 import { useNavigate } from "react-router-dom";
-import Cabecalho from "../../components/Cabecalho/Cabecalho";
-import Rodape from "../../components/Rodape/Rodape";
+import Header from "../../components/Cabecalho/Header";
+import Footer from "../../components/Rodape/Footer";
 
 function PokemonList(){
-    const [pagina, setPagina] = useState(1)
+    const [page, setpage] = useState(1)
     const [pokemonData, setPokemonData] = useState([])
     const total = 1302
-    const limite = 20
+    const limit = 20
 
     const navigate = useNavigate()
 
-    const fetchPokemonData = useCallback(async (pagina = 1)=>{
+    const fetchPokemonData = useCallback(async (page = 1)=>{
         try{
-            const offset = (pagina - 1) * limite;
-            const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limite}`)
+            const offset = (page - 1) * limit;
+            const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
             const dados = data.results.map((pokemon)=>{
                 const id = pokemon.url.split("/")[pokemon.url.split("/").length - 2]
                 const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
@@ -32,29 +32,30 @@ function PokemonList(){
     }, [])
 
     useEffect(()=>{
-        fetchPokemonData(pagina)
-    }, [fetchPokemonData, pagina])
+        fetchPokemonData(page)
+    }, [fetchPokemonData, page])
 
     return(
         <div className={styles.lista} style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/fundo.avif)`}}>
-            <Cabecalho/>
+            <Header/>
 
-            {/*Lista de Pokémons*/}
             <Flex justify="space-evenly" wrap gap="30px">
                 {pokemonData.map((pokemon)=>(
                     <CardPokedex key={pokemon.id} pokemon={pokemon} onclick={()=>navigate(`/${pokemon.id}`)}/>
                 ))}
             </Flex>
-            <Pagination className={styles.paginacao}
-                current={pagina}
-                pageSize={limite}
+
+            <Pagination className={styles.pagecao}
+                current={page}
+                pageSize={limit}
                 total={total}
-                onChange={(pagina) => setPagina(pagina)}
+                onChange={(page) => setpage(page)}
                 showSizeChanger={false}
                 showQuickJumper
                 align={"center"}
             />
-            <Rodape/>
+            
+            <Footer/>
         </div>
     )
 }

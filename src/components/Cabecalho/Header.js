@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import styles from "./Cabecalho.module.css"
+import styles from "./Header.module.css"
 
-function Cabecalho(){
+function Header(){
     const navigate = useNavigate()
 
     return(
@@ -11,4 +11,4 @@ function Cabecalho(){
     )
 }
 
-export default Cabecalho
+export default Header

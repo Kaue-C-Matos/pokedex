@@ -1,6 +1,6 @@
-import "./Rodape.module.css"
+import "./Footer.module.css"
 
-function Rodape(){
+function Footer(){
     return(
         <footer>
             <h2>Desenvolvido por Kauê da Costa Matos</h2>
@@ -8,4 +8,4 @@ function Rodape(){
     )
 }
 
-export default Rodape
+export default Footer
