@@ -45,7 +45,7 @@ function PokemonList(){
                 ))}
             </Flex>
 
-            <Pagination className={styles.pagecao}
+            <Pagination className={styles.paginacao}
                 current={page}
                 pageSize={limit}
                 total={total}
