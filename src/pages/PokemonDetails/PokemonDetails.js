@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { Card, Flex, Image } from "antd"
 import styles from "./PokemonDetails.module.css"
-import Header from "../../components/Cabecalho/Header"
-import Footer from "../../components/Rodape/Footer"
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
 
 function PokemonDetails(){
     const {id} = useParams()

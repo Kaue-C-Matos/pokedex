@@ -4,8 +4,8 @@ import axios from "axios";
 import { Flex, Pagination} from "antd";
 import CardPokedex from "../../components/CardPokedex/CardPokedex";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Cabecalho/Header";
-import Footer from "../../components/Rodape/Footer";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 function PokemonList(){
     const [page, setpage] = useState(1)
@@ -54,7 +54,7 @@ function PokemonList(){
                 showQuickJumper
                 align={"center"}
             />
-            
+
             <Footer/>
         </div>
     )
