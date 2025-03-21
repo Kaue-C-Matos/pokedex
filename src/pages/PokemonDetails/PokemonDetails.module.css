@@ -7,6 +7,17 @@
     min-height: 100vh;
 }
 
+.pokemonFundo{
+    background-image: url('/public/Pokebola.png');
+    background-size: contain;
+    margin: 15px 30px;
+}
+
+.pokemonImagem{
+    border-radius: 100%;
+    backdrop-filter: blur(3px);
+}
+
 .detalhes{
     width: 50%;
     font-family: "Chakra Petch", sans-serif;
@@ -19,10 +30,17 @@
     font-weight: bold;
     font-size: x-large;
     word-spacing: 20px;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.pokebolaPixel{
+    width: 30px;
+    margin: 0 10px;
 }
 
 .detalhes :global(.ant-card-body){
     line-height: 10px;
+    background-color: #e0e0e0;
 }
 
 .detalhes h3 { 

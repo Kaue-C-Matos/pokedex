@@ -28,8 +28,10 @@ function PokemonDetails(){
         <div className={styles.fundoDetalhes}>
             <Cabecalho/>
             <Flex className={styles.flex}>
-                <Image src={pokemon.sprites?.front_default} width={300}  preview={false}/>
-                <Card title={<div>{pokemon.id}   {pokemon.name}</div>} className={styles.detalhes}>
+                <div className={styles.pokemonFundo}>
+                    <Image src={pokemon.sprites?.front_default} width={300} preview={false} className={styles.pokemonImagem}/>
+                </div>
+                <Card title={<div><img src="PokeballPixel.png" alt="pokebola pixel art" className={styles.pokebolaPixel}/>{pokemon.id}   {pokemon.name}</div>} className={styles.detalhes}>
                     <Flex justify="space-around" className={styles.flex}>
                         <div>
                         <h3>Altura: {pokemon.height/10}m</h3>
